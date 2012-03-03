@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block description %}
+	Blog about web application development and programming. With posts ranging from Python, Django to HTML and CSS.
+{% endblock %}
+
+{% block style_block %}
+	<link rel="stylesheet" href="{{ get_asset('css/hilite.css') }}" type="text/css" media="screen">
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="eightcol">
+      <h2 class="title">{{ post.title }}</h2>
+      <p class="post-data">
+          Posted by Madis Väin on {{ post.timestamp|date('%d %b %Y') }}.
+          {% for tag in post.tags %}
+            <span class="grey">{{ tag }}{% if not loop.last %}, {% endif %}</span>
+          {% endfor %}
+      </p>
+      {{ post.content }}
+        </div>
+        <div class="fourcol last">
+            <div style="margin-top: 120px;">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="eightcol">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'konstruktoree';
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+        <div class="fourcol last">
+        </div>
+    </div>
+{% endblock %}

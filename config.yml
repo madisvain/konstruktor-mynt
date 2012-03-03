@@ -1,0 +1,4 @@
+assets_url: /static
+date_format: '%A, %B %d, %Y'
+posts_url: /blog/<title>/
+pygmentize: True

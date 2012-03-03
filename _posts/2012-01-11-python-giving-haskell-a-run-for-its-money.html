@@ -1,0 +1,65 @@
+---
+layout: post.html
+title: 'Python giving Haskell a run for its money'
+tags: ['python', 'haskell']
+---
+
+Everybody knows Haskell beats Python in speed - always. The main reason being is that Haskell is compiled but Python interpreted. There have been some general posts about this all around. But lets give it a fair trial before finding guilty - lets add PyPy to the mix.
+
+PyPy is a implementation of Python written in Python as the name actually suggests. There are tests to suggest that it actually outperforms CPython by quite a margin. And it does this by using JIT (Just In Time Compiler) and better memory management. So it's a blazing fast solution but they have not stopped there. They have plans for supporting Python 3 in PyPy and numPy in PyPY.
+
+Previous posts have suggested that Haskell is 60 x faster then Python and others that maybe around 5x faster. This seemed a large cap - but these tests were done 2007. So I'm very eager to challenge them according to todays standards.
+
+Naive Fibonacci Algorithms
+So the little scripts will be calculating and outputting fibonacci numbers which are are the numbers in the following integer sequence: 0, 1, 1, 2, 3, 5, 8, 13, ...
+
+By definition, the first two numbers in the Fibonacci sequence are 0 and 1, and each subsequent number is the sum of the previous two.
+
+Haskell implementation
+~~~ { haskell }
+fib :: Int -> Int
+fib 0 = 0
+fib 1 = 1
+fib n = fib (n-1) + fib (n-2)
+
+main = forM_ [0..35] $ \i ->
+    printf "n=%d => %d\n" i (fib i)
+~~~
+
+Python implementation
+~~~ { python }
+def fib(n):
+   if n <= 1:
+      return n
+   else:
+      return fib(n-1) + fib(n-2)
+
+if __name__ == "__main__":
+    for i in xrange(36):
+        print "n=%d => %d" % (i, fib(i))
+~~~
+
+Results
+Haskell (optimized)	PyPy	Haskell (unoptimized)	CPython
+0.348 s	2.054 s	2.334 s	25.996 s
+1 x	5.9 x	6.7 x	~75 x
+These tests really show that PyPy is a huge improvement and it seems to be getting better by the day. After running these tests I was told that PyPy's main speedup is not in full force when calculating Fibonacci numbers as the outer loop probably never reaches JIT.
+
+If you use Python and have not tried PyPy before - you really should. It makes a huge difference. PyPy is probably never going to be faster then compiled languages but it gets you closer!
+
+Edit: There are several documented cases where PyPy is faster then compiled languages like C
+
+Notes about testing
+GHCi, version 7.0.4 compiler for Haskell
+Python 2.7.1 interpreter
+PyPy 1.7.0
+Fibonacci was calculated for 36 recurrences
+For timing I used unix time command before every command issued.
+PyPy for Python
+PyPy is a project that Python really needs. It helps Python loose it's reputation of being just "fast enough" and becoming a litter more "fast". And I think Python needs this now more then ever as there are signs of people not being fully happy with Python 3 current state, implementations and the process how we are transitioning there. There just aren't any real advantage over Python 2.
+
+If Python 3 had PyPy support I think it would be easier to explain to ourselves why we need to port our code into Python 3. Armin Ronacher has already asked "Can we accept PyPy as a valid Python implementation that is worth considering as having an effect on how we write code?". And I think we should.
+
+I hope we do.
+
+If you want to help towards Python 3 in PyPy please consider donating. Call for donations.

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="blog, programming, python, django, google app engine, flask, web development">
+    <meta name="description" content="
+	Blog about web application development and programming. With posts ranging from Python, Django to HTML and CSS.
+">
+
+    <title>Konstruktor by Madis Väin</title>
+
+    <!-- 1140px Grid system -->
+    <!--[if lte IE 9]><link rel="stylesheet" href="/static/css/ie.css" type="text/css" media="screen" /><![endif]-->
+    <link rel="stylesheet" href="/static/css/1140.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css" media="screen">
+    
+	<link rel="stylesheet" href="/static/css/hilite.css" type="text/css" media="screen">
+
+
+    <script src="/static/js/css3-mediaqueries.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load("mootools", "1.4.1");
+    </script>
+	
+	<script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-27665790-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+</head>
+<body>
+    <div id="header" class="container">
+        <div class="row">
+            <div id="menu">
+                <ul>
+                    <li>
+                        <a href="/index.html">
+                            <img src="/static/images/templates.png" alt="Blog" />Blog
+                        </a>
+                    </li>
+                    <!--
+                    <li>
+                        <a href="#">
+                            <img src="/static/img/projects.png" alt="Projects" />Projects
+                        </a>
+                    </li>
+                    -->
+                    <li>
+                        <a href="/about.html">
+                            <img src="/static/images/about.png" alt="About" />About
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="logo">
+                <h1>Konstruktor</h1>
+            </div>
+        </div>
+    </div>
+    <div id="content" class="container">
+        
+    <div class="row">
+        <div class="eightcol">
+      <h2 class="title">Python giving Haskell a run for its money</h2>
+      <p class="post-data">
+          Posted by Madis Väin on 11 Jan 2012.
+          
+            <span class="grey">haskell, </span>
+          
+            <span class="grey">python</span>
+          
+      </p>
+      <p>Everybody knows Haskell beats Python in speed - always. The main reason being is that Haskell is compiled but Python interpreted. There have been some general posts about this all around. But lets give it a fair trial before finding guilty - lets add PyPy to the mix.</p>
+
+<p>PyPy is a implementation of Python written in Python as the name actually suggests. There are tests to suggest that it actually outperforms CPython by quite a margin. And it does this by using JIT (Just In Time Compiler) and better memory management. So it&#39;s a blazing fast solution but they have not stopped there. They have plans for supporting Python 3 in PyPy and numPy in PyPY.</p>
+
+<p>Previous posts have suggested that Haskell is 60 x faster then Python and others that maybe around 5x faster. This seemed a large cap - but these tests were done 2007. So I&#39;m very eager to challenge them according to todays standards.</p>
+
+<p>Naive Fibonacci Algorithms<br>
+So the little scripts will be calculating and outputting fibonacci numbers which are are the numbers in the following integer sequence: 0, 1, 1, 2, 3, 5, 8, 13, ...</p>
+
+<p>By definition, the first two numbers in the Fibonacci sequence are 0 and 1, and each subsequent number is the sum of the previous two.</p>
+
+<p>Haskell implementation<br>
+~~~ { haskell }<br>
+fib :: Int -&gt; Int<br>
+fib 0 = 0<br>
+fib 1 = 1<br>
+fib n = fib (n-1) + fib (n-2)</p>
+
+<p>main = forM_ [0..35] $ \i -&gt;<br>
+    printf &quot;n=%d =&gt; %d\n&quot; i (fib i)<br>
+~~~</p>
+
+<p>Python implementation<br>
+~~~ { python }<br>
+def fib(n):<br>
+   if n &lt;= 1:<br>
+      return n<br>
+   else:<br>
+      return fib(n-1) + fib(n-2)</p>
+
+<p>if <strong>name</strong> == &quot;<strong>main</strong>&quot;:<br>
+    for i in xrange(36):<br>
+        print &quot;n=%d =&gt; %d&quot; % (i, fib(i))<br>
+~~~</p>
+
+<p>Results<br>
+Haskell (optimized) PyPy    Haskell (unoptimized)   CPython<br>
+0.348 s 2.054 s 2.334 s 25.996 s<br>
+1 x 5.9 x   6.7 x   ~75 x<br>
+These tests really show that PyPy is a huge improvement and it seems to be getting better by the day. After running these tests I was told that PyPy&#39;s main speedup is not in full force when calculating Fibonacci numbers as the outer loop probably never reaches JIT.</p>
+
+<p>If you use Python and have not tried PyPy before - you really should. It makes a huge difference. PyPy is probably never going to be faster then compiled languages but it gets you closer!</p>
+
+<p>Edit: There are several documented cases where PyPy is faster then compiled languages like C</p>
+
+<p>Notes about testing<br>
+GHCi, version 7.0.4 compiler for Haskell<br>
+Python 2.7.1 interpreter<br>
+PyPy 1.7.0<br>
+Fibonacci was calculated for 36 recurrences<br>
+For timing I used unix time command before every command issued.<br>
+PyPy for Python<br>
+PyPy is a project that Python really needs. It helps Python loose it&#39;s reputation of being just &quot;fast enough&quot; and becoming a litter more &quot;fast&quot;. And I think Python needs this now more then ever as there are signs of people not being fully happy with Python 3 current state, implementations and the process how we are transitioning there. There just aren&#39;t any real advantage over Python 2.</p>
+
+<p>If Python 3 had PyPy support I think it would be easier to explain to ourselves why we need to port our code into Python 3. Armin Ronacher has already asked &quot;Can we accept PyPy as a valid Python implementation that is worth considering as having an effect on how we write code?&quot;. And I think we should.</p>
+
+<p>I hope we do.</p>
+
+<p>If you want to help towards Python 3 in PyPy please consider donating. Call for donations.</p>
+
+        </div>
+        <div class="fourcol last">
+            <div style="margin-top: 120px;">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="eightcol">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'konstruktoree';
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+        <div class="fourcol last">
+        </div>
+    </div>
+
+    </div>
+
+    
+</body>
+</html>

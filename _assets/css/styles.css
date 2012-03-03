@@ -1,0 +1,170 @@
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: #3d3d3d;
+}
+
+a {
+    color: #2d4159;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+/*#cff1fa;*/
+a:hover {
+    color: #557ba8;
+    text-decoration: none;
+}
+
+p {
+    margin: 0 0 10px 0;
+}
+
+h1, h2 {
+    margin: 0 0 10px 0;
+}
+
+form label {
+    display: block;
+}
+
+.grey {
+    color: #a3a3a3;
+}
+.light-grey {
+    color: #d6d6d6;
+}
+
+#logo {
+    width: 212px;
+    height: 226px;
+    float: right;
+    background: url('/static/images/logo.png') bottom no-repeat;
+}
+#header {
+    height: 100px;
+    background: url('/static/images/topstrip.png') bottom repeat-x;
+}
+#header h1 {
+    color: transparent;
+}
+
+#menu {
+    float: left;
+    padding-top: 28px;
+}
+#menu ul {
+    margin-left: 0;
+    padding-left: 0;
+    display: inline;
+}
+#menu ul li {
+    padding: 2px 15px 5px;
+    list-style: none;
+    display: inline;
+}
+#menu ul li a {
+    color: #898989;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+#menu ul li a:hover {
+    color: #4e4e4e;
+}
+#menu ul li img {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    padding-right: 6px;
+}
+
+#content {
+    padding-top: 30px;
+}
+#content .title {
+    padding-top: 10px;
+    margin-bottom: 6px;
+}
+#content .post:hover {
+    background: #fafafa;
+    cursor:pointer;
+}
+#content .post-data {
+    font-size: 12px;
+}
+#content .view-full {
+    font-size: 12px;
+}
+#content p a {
+    text-decoration: underline;
+}
+#content blockquote {
+    padding-left: 20px;
+    font-style: italic;
+}
+#content ul, ol {
+    padding: 0 14px 10px 28px;
+}
+#content table {
+    border: #ccc 1px solid;
+    border-collapse: collapse;
+}
+#content table th {
+    padding: 11px 25px;
+    border-bottom: 1px solid #ccc; border-top: 1px solid #ccc;
+    background: #ededed;
+}
+#content table tr {
+    padding-left: 20px;
+    text-align: center
+}
+
+#footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+
+    body {
+        
+    }
+
+    #logo {
+        visibility: hidden;
+    }
+
+}
+
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+/*    .logo {
+        background: url(logo2x.jpg) no-repeat;
+        background-size: 212px 303px;
+    }*/
+
+}
