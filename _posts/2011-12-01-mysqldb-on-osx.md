@@ -11,7 +11,7 @@ These instructions are intended to be used with the MySQL official Community Ser
 ###PIP or easy_install
 For installing python modules I use PIP but this also works with source or easy_install. At first installing with PIP would fail with the following tracepack.
 
-~~~ { shell }
+~~~ { python }
 File "setup_posix.py", line 24, in mysql_config
 raise EnvironmentError("%s not found" % (mysql_config.path,))
 EnvironmentError: mysql_config not found
