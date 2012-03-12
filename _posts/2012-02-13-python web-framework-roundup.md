@@ -80,7 +80,7 @@ These are the main Python web frameworks people usually talk about.
 </p>
   
 ### [Django](https://www.djangoproject.com/)
-<a href="https://www.djangoproject.com/"><img src="/static/img/content/django.png" alt="Django" style="float: right;" /></a>
+<a href="https://www.djangoproject.com/"><img src="/static/images/content/django.png" alt="Django" style="float: right;" /></a>
 This one probably is the best known and most used Python web framework around. And I have no doubt that it stands up to its name. It has everything - batteries included. Django also has the biggest community with the most packages around for almost anything you can think of. It is exceptionally well documented but there are some corner cases which you'll have to search for on StackOverflow or look for in the source.
 
 Django uses convention over configuration which is a treat for beginners to get going and still flexible enough for complex applications. Django also deliveres on rapid development and clean, pragmatic design as they promise.
@@ -110,7 +110,7 @@ The only thing that I really don't like is that its batteries are welded shut. Y
 
 <br/>
 ### [Flask](http://flask.pocoo.org/)
-<a href="http://flask.pocoo.org/"><img src="/static/img/content/flask.png" alt="Flask" style="float: right;" /></a>
+<a href="http://flask.pocoo.org/"><img src="/static/images/content/flask.png" alt="Flask" style="float: right;" /></a>
 Armin Ronacher is the guy behind this ingenious web framework. It names itself a micro framework - it basically is _except it's a micro glue framework_. It glues together Werkzeug and Jinja into a easy to use solution (adds up to ~35k lines of code). So it's modular by design and can be easily extended.
 
 Flask also has a lot of [extensions](http://flask.pocoo.org/extensions/) to use and fast growing user base. It's well documented and even has a guide for [common patterns](http://flask.pocoo.org/docs/patterns/#patterns) which comes very handy. Flask is very easy to use and a basic Hello world application is just 3 _(7)_ lines of code.
@@ -140,7 +140,7 @@ It's an exceptionally good framework for building a new site but I would not rec
 
 <br/>
 ### [Bottle](http://bottlepy.org)
-<a href="http://bottlepy.org"><img src="/static/img/content/bottle.png" alt="Bottle" style="float: right;" /></a>
+<a href="http://bottlepy.org"><img src="/static/images/content/bottle.png" alt="Bottle" style="float: right;" /></a>
 This framework is relatively new. It has been influenced by Sinatra - the micro framework for Ruby. Bottle is actually what you could call a micro framework - it consists of only around 4.5k lines of code. And I think it's the best *truly micro* framework there is for Python to date. Bottle has no other dependencies then the Python Standard Library and it even has it's own little templating language. For what it's little codebase achieves that’s very good. Bottle also has python 3k support which Flask and Django don't yet have.
 
 Documentation for bottle is extensive and holds solutions to things it yet does not do. The Hello world example actually resembles Flask very closely. It's also a 3 liner and uses decorators for defining routes.
@@ -167,7 +167,7 @@ Bottle would be a good choice for a very small project or experimenting with Pyt
 
 <br/>
 ### [web.py](http://webpy.org/)
-<a href="http://webpy.org/"><img src="/static/img/content/webpy.jpeg" alt="web.py" style="float: right;" /></a>
+<a href="http://webpy.org/"><img src="/static/images/content/webpy.jpeg" alt="web.py" style="float: right;" /></a>
 Some long time ago this was used for reddit. When it was still young growing popular. And it handled the traffic well because it has minimal overhead. Everything a framework needs is implemented but in a quite low level. They call themselves the anti framework framework and by that they mean web.py will not get in your way if you want to write a web application in Python.
 
 It has class based views and is actually quite easy to use. Standard [app skeleton](http://webpy.org/skeleton/0.3) is very simple and straight forward. web.py is also packages nicely into sorted files and folders.
@@ -196,7 +196,7 @@ Sadly this library has fallen victim to the latest craze of rails style framewor
 
 <br/>
 ### Tornado
-<img src="/static/img/content/tornado.png" alt="Tornado" style="float: right;" />
+<img src="/static/images/content/tornado.png" alt="Tornado" style="float: right;" />
 Tornado is not purely a web framework but also a web server. It was originally developed for FriendFeed, which was acquired by Facebook in 2009. It's intention is to solve the problem of real-time services as they have thousands of live connections. Tornado does this by non blocking and queuing the connections with epoll or kqueue.
 
 Tornado documentation is hardcore technical. It's not intended for beginners but intermediate or advanced users will find it satisfying. The Hello World app goes as follows.
@@ -228,7 +228,7 @@ I have never used this for a actual project as I have not found the need for thi
 
 <br/>
 ### CherryPy
-<img src="/static/img/content/cherrypy.png" alt="Tornado" style="float: right;" />
+<img src="/static/images/content/cherrypy.png" alt="Tornado" style="float: right;" />
 This is one of the oldest web frameworks for Python. CherryPy as a framework is not very widely used and it's probably better known as a web server then a web framework. For serving requests CherryPy also uses queuing for performance but does it through [thread-pooling](http://en.wikipedia.org/wiki/Thread_pool_pattern). 
 
 Documentation for is quite sparse actually but it covers the main topics. CherryPy also has python 3 support. Syntax for a Hello World is quite beautiful I must say.
@@ -251,7 +251,7 @@ cherrypy.quickstart(HelloWorld())
 
 <br/>
 ### Brubeck
-<img src="/static/img/content/brubeck.png" alt="Brubeck" style="float: right;" />
+<img src="/static/images/content/brubeck.png" alt="Brubeck" style="float: right;" />
 This is a completely new approach to a python web framework. It does not use WSGI but uses a language agnostic web server called Mongrel2 - this leaves only the request handling to Python. Requests are handled as coroutines (greenlets).
 
 For models they use DictShield library, which means that plugins for different database layers could be written on top of it.
