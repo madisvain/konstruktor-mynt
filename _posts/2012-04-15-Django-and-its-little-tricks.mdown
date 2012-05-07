@@ -1,0 +1,85 @@
+---
+layout: post.html
+title: 'Django and its little tricks'
+tags: ['os x', 'mysql']
+---
+There are some things that can make your work with Django more effective. Many of which are not in the documentation and you just figure them out once you are confronted with a problem. This post will highlight some of the tricks I have learned and used over the years.
+
+### Project settings
+The first thing you have to realize is that settings.py is just Python. It can handle all sorts of python code that you throw at it.
+
+##### Absolute paths
+These are required for settings like MEDIA_ROOT, STATIC_ROOT and STATICFILES_DIRS. Writing the absolute paths and keeping them up to date inbetween development and deployment would be a headache so just use the following in settings.py. So use python to ease the generation of absolute paths for you.
+
+~~~ { python }
+import os
+PROJECT_DIR = os.path.dirname(__file__)
+
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
+~~~
+
+##### Local settings
+So there are some different opinions on this but I like to keep development settings in the settings.py file and overwrite them with local settings. This makes it possible to have a settings_local.py file in the deployment server with it's own SECRET_KEY and DEBUG set to False.
+
+_Set this at the very end of settings.py_
+
+~~~ { python }
+try:
+	from settings_local import *
+except ImportError:
+	pass
+~~~
+
+
+##### Staticfiles and templates
+When Django 1.3 introduced the staticfiles app I was happy but confused. Where do I put the base templates and static files that don't belong to any app but still maintain the project structure.
+
+So for this I got inspiration from Rails. Just keep them in a "assets" folder and include them in STATICFILES_DIRS and TEMPLATE_DIRS.
+
+~~~ { python }
+STATICFILES_DIRS = (
+	os.path.join(PROJECT_DIR, 'assets', 'static'),
+)
+TEMPLATES_DIRS = (
+	os.path.join(PROJECT_DIR, 'assets', 'templates'),
+)
+~~~
+
+##### Database configuration
+When setting up a new project and doing initial testing I find working with SQLite easiest. It has zero configuration and if you stick to ORM (no custom SQL) then you can make the switch afterwards with no problems.
+
+~~~ { python }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db',
+    }
+}
+~~~
+
+_Just remember to ad db to .gitingore_
+
+##### Makefile for command chains
+Django has it's own management commands system but it's quite clunky to write commands for. So I just use a Makefile for the simple things.
+
+This allows me to be a bit lazy and automate some of the things I do regularly. Just type "make run" to run the development server or "make reset" for reseting the whole database, load the fixtures and create a new superuser without having to type everything again and again.
+
+_Makefile_
+
+~~~ { makefile }
+run:
+	python manage.py runserver
+
+reset:
+	rm -Rf database
+	rm -f database.sqlite
+	yes no | python manage.py syncdb
+	python manage.py loaddata currencies
+	python manage.py createsuperuser --username=madis --email=user@host.com
+~~~
+
+### Templates
+
+~~~ { python }
+firstof
+~~~
