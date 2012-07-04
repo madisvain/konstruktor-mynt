@@ -11,6 +11,8 @@ sudo yum install mysql-server mysql mysql-devel
 chckconfig's
 mysql_secure_installation
 
+yum groupinstall 'Development Tools'
+
 ### Setting up your environment
 sudo pip install virtualenv
 sudo yum install git

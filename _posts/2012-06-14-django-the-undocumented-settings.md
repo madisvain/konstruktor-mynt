@@ -1,7 +1,7 @@
 ---
 layout: post.html
 title: 'Django - the undocumented settings'
-tags: ['os x', 'mysql']
+tags: ['Django', 'python']
 ---
 There are some things that can make your work with Django more effective. Many of which are not in the documentation and you just figure them out once you are confronted with a problem. This series "Django - the undocumented" posts will highlight some of the tricks I have learned and used over the years.
 
@@ -18,6 +18,20 @@ import os
 PROJECT_DIR = os.path.dirname(__file__)
 
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
+~~~
+
+### Staticfiles and templates
+When Django 1.3 introduced the staticfiles app I was happy but confused. Where do I put the base templates and static files that don't belong to any app but still maintain the project structure.
+
+So for this I got inspiration from Rails. Just keep them in a "assets" folder and include them in STATICFILES_DIRS and TEMPLATE_DIRS.
+
+~~~ { python }
+STATICFILES_DIRS = (
+	os.path.join(PROJECT_DIR, 'assets', 'static'),
+)
+TEMPLATE_DIRS = (
+	os.path.join(PROJECT_DIR, 'assets', 'templates'),
+)
 ~~~
 
 ### Local settings
@@ -71,25 +85,43 @@ reset:
 ~~~
 
 ### Logging DB queries
-While I love Django-debug-toolbar for debugging I hate how slow it actually loads. So i like to keep things lightweight and log the DB queries to the shell.
+While I love the looks of Django-debug-toolbar for debugging I hate how slow it actually loads. So i like to keep things lightweight and log the DB queries to the shell. Just add the following.
+
+_settings.py_
 
 ~~~ { python }
 import logging
 ~~~
 
-### Staticfiles and templates
-When Django 1.3 introduced the staticfiles app I was happy but confused. Where do I put the base templates and static files that don't belong to any app but still maintain the project structure.
-
-So for this I got inspiration from Rails. Just keep them in a "assets" folder and include them in STATICFILES_DIRS and TEMPLATE_DIRS.
+~~~ { python }
+LOGGING = {
+    ...
+    'handlers': {
+        ...
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        }
+    },
+    ...
+}
+~~~
 
 ~~~ { python }
-STATICFILES_DIRS = (
-	os.path.join(PROJECT_DIR, 'assets', 'static'),
-)
-TEMPLATE_DIRS = (
-	os.path.join(PROJECT_DIR, 'assets', 'templates'),
-)
+LOGGING = {
+    ...
+    'loggers': {
+        ...
+        'django.db.backends': {
+			'level': 'DEBUG',
+            'handlers': ['console'],
+        }
+    },
+    ...
+}
 ~~~
+
+So this just outputs every query to the shell. If thats too verbose for you then you can set up an [aggregation middleware for queries by Jamie Matthews](http://dabapps.com/blog/logging-sql-queries-django-13/)
 
 ### .gitignore
 The gitignore template is pretty standard.
@@ -105,4 +137,11 @@ media/*
 static/*
 ~~~
 
-#### In the next post I'll write about undocumented views and forms for Django.
+### Debugging on demand
+This is a bit outside of settings but if you want to raise the debugging page on demand then just write the following into your view.
+
+~~~ { python }
+assert False
+~~~
+
+_In the next post I'll write about undocumented authentication and user registration._
