@@ -1,7 +1,7 @@
 ---
 layout: post.html
 title: 'Django - the undocumented authentication and registration'
-tags: ['Djangi', 'python']
+tags: ['Django', 'python']
 ---
 Django is very well written and extending it is a piece of cake - something that every Django developer should know how to do. So django has authentication and user registration already built in - something that a lot of people don't know how to use and look for 3rd party plugins like:
 
