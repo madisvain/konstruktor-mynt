@@ -20,17 +20,6 @@
         google.load("mootools", "1.4.1");
     </script>
 	{% block head_script %}{% endblock %}
-	<script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-27665790-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
 </head>
 <body>
     <div id="header" class="container">
@@ -38,7 +27,7 @@
             <div id="menu">
                 <ul>
                     <li>
-                        <a href="{{ get_url('index.html') }}">
+                        <a href="{{ get_url('') }}">
                             <img src="{{ get_asset('images/templates.png') }}" alt="Blog" />Blog
                         </a>
                     </li>
@@ -50,7 +39,7 @@
                     </li>
                     -->
                     <li>
-                        <a href="{{ get_url('about.html') }}">
+                        <a href="{{ get_url('about/') }}">
                             <img src="{{ get_asset('images/about.png') }}" alt="About" />About
                         </a>
                     </li>
@@ -66,5 +55,20 @@
     </div>
 
     {% block tail_script %}{% endblock %}
+
+    <!-- Gaug.es -->
+    <script type="text/javascript">
+      var _gauges = _gauges || [];
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id', '500718fa613f5d5af7000098');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
 </body>
 </html>

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block description %}
+	About me Madis Väin. What I do and how I do it.
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="eightcol">
+            <img src="/static/images/me.png" alt="profile picture" style="float: right; padding-left: 10px; padding-bottom: 10px;" />
+            <h1>About</h1>
+            <p>
+                My name is Madis Väin and I'm a business software engineer.
+            <p>
+            </p>
+                I belive in creating business value with software solutions to add revenue and reduce costs.
+            </p>
+            <p>
+                If you'd like to discuss something over coffee then feel free to <a href="mailto:madis@konstruktor.ee">email me</a>.
+            </p>
+            <br/>
+            <h2>Beliefs</h2>
+            <p>
+                Here are some of my beliefs about what makes project successful.
+            </p>
+            
+            <h4>Project management</h4>
+            <p>
+                Project management is a must. Think ahead, communicate and schedule your projects (preferably with <a href="http://en.wikipedia.org/wiki/Gantt_chart">Gantt charts</a>).
+                Documentation is as important for a project as an index is for an encyclopedia. You will get lost if you don't have one.
+            </p>
+            <p>
+                Design with diagrams (preferably <a href="http://en.wikipedia.org/wiki/Unified_Modeling_Language">UML</a>) to understand where your headed.
+            <p>
+            <h4>Deadlines</h4>
+            </p>
+                Make them realistic but never be late after setting one.
+            </p>
+            <h4>Think big. Start small. Grow fast.</h4>
+            <p>
+                We all have crazy-big ideas but it's important to focus on the core idea and make it happen before adding any nifty features.
+                Have a plan for growing fast because when growing happens you wont have time to plan.
+            </p>
+            <br/>
+            <h2>Tools for the job</h2>
+            <p>
+                For any different task you'd need the right tools. So in time I have learned quite a few.
+            </p>
+            <!--
+            <p>
+                I like to use Django for large and difficult projects in combination with MySQL or PostreSQL.<br/>
+                Django is a Python web framework with an ORM, Automatic Admin interface, elegant URLS, templating system, cache system and internationalization.
+            </p>
+            <p>
+                Automatic admin interface provided by Django will save time and money for the client as it's very easy to set up and manage.
+                Django makes development twice as fast and leverages from a big community with lots of libraries.
+                So there is no reinventing the wheel.
+            </p>
+            -->
+            <h3>Skillset</h3>
+            <h4>Languages</h4>
+            <p>
+                <a href="http://python.org/">Python</a>, Javascript, <i>PHP,</i> <span class="grey">Java</span>, <span class="light-grey">Ruby</span><br/>
+                <a href="">HTML</a>, CSS, XML, JSON, YAML<br/>
+                <a href="http://mootools.net/">MooTools</a>, <span class="grey">jQuery</a>
+            </p>
+            <h4>Web frameworks</h4>
+            <p>
+                <a href="https://www.djangoproject.com/">Django</a>, <i>CakePHP, Symfony,</i> <span class="grey">node.js, Play framework</span>, <span class="light-grey">Ruby on Rails
+            </p>
+            <h4>Deployment</h4>
+            <p>
+                <a href="http://aws.amazon.com/">Amazon Web Services</a> - EC2, S3, SES, RDS, CloudFront CDN<br/>
+                <a href="http://code.google.com/appengine/">Google App Engine</a> - Datastore, Blobstore, Mail services<br/>
+                <span class="grey">any other Dedicated or Virtual server - Linux or Unix based</span>
+            </p>
+            <h4>Underlaying technologys:</h4>
+            <p>
+                Nginx, Apache, Gunicorn, <span class="grey">HAProxy, memcache</span>
+                <br/>
+                MySQL, PostgreSQL, DataStore, <span class="grey">MongoDB</span>
+            </p>
+            <br/>
+            <!--
+            <h2>CV</h2>
+            <p>Here is my CV for reference.</p>
+            -->
+        </div>
+        <div class="fourcol last">
+            &nbsp;
+        </div>
+    </div>
+{% endblock %}
