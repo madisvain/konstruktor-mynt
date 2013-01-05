@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block description %}
+    Blog about web application development and programming. With posts ranging from Python, Django to HTML and CSS.
+{% endblock %}
+
+{% block style_block %}
+    <link rel="stylesheet" href="/static/blog/css/hilite.css" type="text/css" media="screen">
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="eightcol">
+            {% for post in posts %}
+                <div class="post" onClick="window.location = '{{ get_url(post.url) }}';">
+                    <h2 class="title"><a href="{{ get_url(post.url) }}">{{ post.title }}</a></h2>
+                    <p class="post-data">
+                        Posted by Madis Väin on {{ post.timestamp|date('%d %b %Y') }}.
+                        {% for tag in post.tags %}
+                            <span class="grey">{{ tag }}{% if not loop.last %}, {% endif %}</span>
+                        {% endfor %}
+                    </p>
+                    {{ post.excerpt }}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="fourcol last">
+            <!--<div style="width: 212px; margin-top: 100px; float: right;">
+                <h4>Ahti Väin commented:</h4>
+                <p>
+                    This exporting feature is great but should we not add others?
+                </p>
+                @25.11.2011 11:25
+            </div>-->
+            &nbsp;
+        </div>
+    </div>
+{% endblock %}

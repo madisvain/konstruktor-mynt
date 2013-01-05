@@ -50,11 +50,11 @@ form label {
     width: 212px;
     height: 226px;
     float: right;
-    background: url('/static/images/logo.png') bottom no-repeat;
+    background: url('/static/blog/images/logo.png') bottom no-repeat;
 }
 #header {
     height: 100px;
-    background: url('/static/images/topstrip.png') bottom repeat-x;
+    background: url('/static/blog/images/topstrip.png') bottom repeat-x;
 }
 #header h1 {
     color: transparent;
