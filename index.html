@@ -8,34 +8,180 @@
     <link rel="stylesheet" type="text/css" href="{{ get_asset('reset.css') }}" />
     <link rel="stylesheet/less" type="text/css" href="{{ get_asset('styles.less') }}" />
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
 
     <!-- Javascript -->
     <script src="{{ get_asset('less.js') }}" type="text/javascript"></script>
+    <script src="{{ get_asset('jquery.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="{{ get_asset('gmaps.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Scrollin animation
+            $('a[href^="#"]').bind('click.smoothscroll', function (e) {
+                e.preventDefault();
+                
+                var target = this.hash;
+                $target = $(target);
+
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 500, 'swing', function () {
+                    window.location.hash = target;
+                });
+            });
+
+            // Map
+            var gmap = new GMaps({
+                div: '#map',
+                lat: 59.43300,
+                lng: 24.76901,
+                panControl: false,
+                mapTypeControl: false,
+                scrollwheel: false
+            });
+            gmap.addMarker({
+                lat: 59.43300,
+                lng: 24.76101
+            });
+        });
+    </script>
 </head>
 <body>
     <div id="header">
-        <div class="container">
+        <div class="container clearfix">
             <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Our Clients</a></li>
-                <li><a href="#">The Team</a></li>
-                <li><a href="#">Latest News</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#work">Our Work</a></li>
+                <li><a href="#team">The Team</a></li>
+                <li><a href="#news">Latest News</a></li>
+                <li><a href="#contact">Contact Us</a></li>
             </ul>
-            <h1>
-                Konstruktor
-            </h1>
-        </div>
-    </div>
-    <div id="focus">
-        <div class="container">
             <h1>Konstruktor</h1>
         </div>
     </div>
-    <div id="news">
+    <div id="about">
+        <div class="container">
+            <h2>We create web solutions<br/> that help your business thrive.</h2>
 
+            <div class="clearfix">
+                <div class="column">
+                    Konstruktor is a small team that creates smart software solutions to help companies improve efficiency and financial performance. We are really passionate about what we do and believe that web-based technologies will change the way businesses think and operate. We believe that thought-out and efficient back-end engineering together with an intuitive and user-friendly design is the key to success.
+                </div>
+                <div class="column last">
+                    We work closely with our clients and partners to create purposeful websites and well adaptable online products. Konstruktor also develops web apps for a wider market, our latest beta stage apps include simple online invoicing tool <a href="http://www.invoiceclerk.com/">InvoiceClerk</a> for freelancers and small businesses and a budget management tool <a href="http://budget.to/">Budgetto</a> that helps companies keep costs under control.
+                </div>
+            </div>
+
+            <p>
+                Could we help you improve your business? <span class="action">Let’s talk!</span>
+            </p>
+        </div>
+    </div>
+
+    <div id="work">
+        <hr/>
+        <div class="container">
+            <h3>Our work</h3>
+
+            <p>
+                We are passionate about our work.
+            </p>
+        </div>
+    </div>
+
+    <div id="team">
+        <hr/>
+        <div class="container">
+            <h3>The team</h3>
+
+            <p>
+                We work closely with our clients and partners to create purposeful websites and well adaptable online products. Konstruktor also develops web apps for a wider market, our latest beta stage apps include simple online invoicing tool <a href="http://www.invoiceclerk.com/">InvoiceClerk</a> for freelancers and small businesses and a budget management tool <a href="http://budget.to/">Budgetto</a> that helps companies keep costs under control.
+            </p>
+
+            <div class="clearfix">
+                <div class="column">
+                    <img src="{{ get_asset('blog/images/me.png') }}" alt="">
+                    <h4>Madis Väin</h4>
+                    Software engineer
+                </div>
+                <div class="column middle">
+                    <img src="{{ get_asset('blog/images/me.png') }}" alt="">
+                    <h4>Rasmus Vaino</h4>
+                    Client relations
+                </div>
+                <div class="column last">
+                    <img src="{{ get_asset('blog/images/me.png') }}" alt="">
+                    <h4>You?</h4>
+                    We are hiring!
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="news">
+        <hr/>
+        <div class="container">
+            <h3>Latest news</h3>
+        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="date">
+                        <span>Jan 4th, 2013</span>
+                    </td>
+                    <td class="excerpt">
+                        We are happy to announce that Konstruktor's budget management tool Budgetto was accepted to the Startup Wise Guys accelerator program. This secures the project a seed funding of 10,000€ and means that starting January 14th the Konstruktor team will dedicate the next 3 months to develop <a href="www.budget.to">Budgetto</a> and prepare for investor days in April. We are really excited for this opportunity and invite you to follow our journey on @budgetto.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="date">
+                        <span>Dec 31th, 2012</span>
+                    </td>
+                    <td class="excerpt">
+                        Our new website is up with more information about Konstruktor and our work. The technology blog can still be accessed from here: <a href="http://www.konstruktor.ee/blog">http://www.konstruktor.ee/blog</a>.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="contact">
+        <hr/>
+        <h3>Contact us</h3>
+        <div class="info">
+            <h4>Konstruktor OÜ</h4>
+            <p>
+                Tornimäe 5<br/>
+                10145 Tallinn<br/>
+                Estonia
+            </p>
+            <p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Registrikood</td>
+                            <td>11928283</td>
+                        </tr>
+                        <tr>
+                            <td>VAT</td>
+                            <td>EE101600930</td>
+                        </tr>
+                        <tr>
+                            <td>LHV Pank</td>
+                            <td>771001039545</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+            <p>
+                <a href="mailto:info@konstruktor.ee">info@konstruktor.ee</a><br/>
+                +372 501 3866
+            </p>
+        </div>
+        <div id="map"></div>
     </div>
 </body>
 </html>
