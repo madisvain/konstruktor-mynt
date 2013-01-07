@@ -67,15 +67,18 @@
 
             <div class="clearfix">
                 <div class="column">
-                    Konstruktor is a small team that creates smart web software solutions to help companies improve efficiency and financial performance. We are really passionate about what we do and believe that web-based technologies will change the way businesses think and operate. We work closely with our clients
+                    Konstruktor is a small team that creates smart web software solutions to help companies improve efficiency and financial performance. We are really passionate about what we do and believe that web-based technologies will change the way businesses think and operate. We work closely with our clients to
                 </div>
                 <div class="column last">
-                    to create meaningful websites and well adaptable online products. Konstruktor also develops web apps, our latest beta stage apps include simple online invoicing tool <a href="http://www.invoiceclerk.com/">InvoiceClerk</a> for freelancers and small businesses and a budget management tool <a href="http://budget.to/">Budgetto</a> that helps companies keep costs under control.
+                    create meaningful websites and well adaptable online products. Konstruktor also develops web apps, our latest beta stage apps include simple online invoicing tool <a href="http://www.invoiceclerk.com/">InvoiceClerk</a> for freelancers and small businesses and a budget management tool <a href="http://budget.to/">Budgetto</a> that helps companies keep costs under control.
                 </div>
             </div>
 
             <p>
-                Could we help you improve your business? <span class="action">Let’s talk!</span>
+                Could we help you improve your business?
+                <a href="mailto:info@konstruktor.ee" class="no-decoration">
+                    <span class="action">Let’s talk!</span>
+                </a>
             </p>
         </div>
     </div>
@@ -85,9 +88,43 @@
         <div class="container">
             <h3>Our work</h3>
 
-            <p>
-                We are passionate about our work.
-            </p>
+            <div class="clearfix">
+                <div class="column">
+                    <h4>Clients</h4>
+                    <img src="{{ get_asset('images/logo-neway.png') }}" alt="Neway AD" style="margin-top: 30px" />
+                    <br/>
+                    <img src="{{ get_asset('images/logo-veebimajutus.jpg') }}" alt="Veebimajutus" style="margin-top: 20px;" />
+                    <br/>
+                    <img src="{{ get_asset('images/logo-df.png') }}" alt="Dream Foundation" style="margin-top: 20px;" />
+                    <br/>
+                    <img src="{{ get_asset('images/logo-lillebutiik.jpg') }}" alt="Lillebutiik Solaris" style="margin-top: 20px;" />
+                    <br/>
+                </div>
+                <div class="column last">
+                    <h4>Skillset</h4>
+                    <h5>Languages we speak</h5>
+                    <p>
+                        <a href="http://python.org/">Python</a>, Javascript, Ruby, <i>PHP</i>, <span class="grey">Java</span><br>
+                        <a href="http://www.w3.org/">HTML5</a>, CSS3, XML, JSON, YAML<br>
+                        <a href="http://www.jquery.com">jQuery</a>, <a href="http://backbonejs.org/">Backbone.js</a>, MooTools
+                    </p>
+                    <h5>Web frameworks</h5>
+                    <p>
+                        <a href="https://www.djangoproject.com/">Django</a>, node.js, <i>CakePHP, Symfony,</i> <span class="grey">Ruby on Rails</span>
+                    </p>
+                    <h5>Deployment</h5>
+                    <p>
+                        <a href="http://aws.amazon.com/">Amazon Web Services</a> - EC2, S3, SES, RDS, CloudFront<br>
+                        <a href="http://code.google.com/appengine/">Google App Engine</a> - Datastore, Blobstore, Mail services<br>
+                        <span class="grey">any other Dedicated or Virtual server - Linux or Unix based</span>
+                    </p>
+                    <h5>Underlaying technologies:</h5>
+                    <p>
+                        Nginx, Apache, Gunicorn, <span class="grey">HAProxy, memcache</span><br>
+                        MySQL, PostgreSQL, DataStore, <span class="grey">MongoDB</span>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -96,25 +133,26 @@
         <div class="container">
             <h3>The team</h3>
 
-            <p>
-                We work closely with our clients and partners to create purposeful websites and well adaptable online products. Konstruktor also develops web apps for a wider market, our latest beta stage apps include simple online invoicing tool <a href="http://www.invoiceclerk.com/">InvoiceClerk</a> for freelancers and small businesses and a budget management tool <a href="http://budget.to/">Budgetto</a> that helps companies keep costs under control.
-            </p>
+            <p>&nbsp;</p>
 
             <div class="clearfix">
                 <div class="column">
-                    <img src="{{ get_asset('blog/images/me.png') }}" alt="">
+                    <img src="{{ get_asset('blog/images/me.png') }}" alt="Madis Väin">
                     <h4>Madis Väin</h4>
-                    Software engineer
+                    Software engineer<br/>
+                    <a href="mailto:madis@konstruktor.ee">madis@konstruktor.ee</a>
                 </div>
                 <div class="column middle">
-                    <img src="{{ get_asset('blog/images/me.png') }}" alt="">
+                    <img src="{{ get_asset('images/rasmus.jpg') }}" alt="Rasmus Vaino">
                     <h4>Rasmus Vaino</h4>
-                    Client relations
+                    Client relations<br/>
+                    <a href="mailto:rasmus@konstruktor.ee">rasmus@konstruktor.ee</a>
                 </div>
                 <div class="column last">
-                    <img src="{{ get_asset('blog/images/me.png') }}" alt="">
+                    <img src="{{ get_asset('images/flower.png') }}" alt="You?">
                     <h4>You?</h4>
-                    We are hiring!
+                    We are hiring!<br/>
+                    <a href="mailto:info@konstruktor.ee">info@konstruktor.ee</a>
                 </div>
             </div>
 
@@ -133,7 +171,7 @@
                         <span>Jan 4th, 2013</span>
                     </td>
                     <td class="excerpt">
-                        We are happy to announce that Konstruktor's budget management tool Budgetto was accepted to the Startup Wise Guys accelerator program. This secures the project a seed funding of 10,000€ and means that starting January 14th the Konstruktor team will dedicate the next 3 months to develop <a href="www.budget.to">Budgetto</a> and prepare for investor days in April. We are really excited for this opportunity and invite you to follow our journey on @budgetto.
+                        We are happy to announce that Konstruktor's budget management tool <a href="http://www.budget.to">Budgetto</a> was accepted to the <a href="http://startupwiseguys.com/">Startup Wise Guys</a> accelerator program. This secures the project a seed funding of 10,000€ and means that starting January 14th the Konstruktor team will dedicate the next 3 months to develop Budgetto and prepare for investor days in April. We are really excited for this opportunity and invite you to follow our journey on <a href="http://budget.to">http://budget.to</a>
                     </td>
                 </tr>
                 <tr>
@@ -141,7 +179,7 @@
                         <span>Dec 31th, 2012</span>
                     </td>
                     <td class="excerpt">
-                        Our new website is up with more information about Konstruktor and our work. The technology blog can still be accessed from here: <a href="http://www.konstruktor.ee/blog">http://www.konstruktor.ee/blog</a>.
+                        Our new website is up with more information about Konstruktor and our work. The technology blog can still be accessed from here: <a href="http://www.konstruktor.ee/blog">http://www.konstruktor.ee/blog</a>
                     </td>
                 </tr>
             </tbody>
@@ -183,5 +221,19 @@
         </div>
         <div id="map"></div>
     </div>
+    <!-- Gaug.es -->
+    <script type="text/javascript">
+      var _gauges = _gauges || [];
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id', '500718fa613f5d5af7000098');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
 </body>
 </html>

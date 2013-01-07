@@ -6,6 +6,10 @@ body {
     font-weight: 300;
 }
 
+.grey { color: #999; }
+.light-grey { color: #bbb; }
+i { font-style: italic; }
+
 h1, h2, h3, h4, h5 {
     color: #333;
     font-family: 'Source Sans Pro', sans-serif;
@@ -18,10 +22,13 @@ a {
     &:hover {
         border-bottom: 1px solid #dea811;
     }
+    &.no-decoration:hover {
+        border-bottom: none;
+    }
 }
 
 hr {
-    width: 80%;
+    width: 60%;
     margin: 60px auto;
     border: 0;
     border-top: 1px dashed #aaa;
@@ -96,6 +103,7 @@ hr {
         margin-right: 40px;
         text-align: justify;
         text-justify: inter-word;
+        text-align-last: justify;
 
         &.last {
             margin-right: 0;
@@ -134,11 +142,29 @@ hr {
         text-align: center;
         text-transform: uppercase;
     }
+
+    .column {
+        float: left;
+        width: 400px;
+        padding-left: 80px;
+        margin-top: 40px;
+        margin-right: 40px;
+        text-align: right;
+
+        &.last {
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 80px;
+            text-align: left;
+        }
+    }
+
+    h4 {
+        text-transform: uppercase;
+    }
+    h5 { margin: 6px 0; }
     p {
-        width: 840px;
-        margin: 20px auto;
-        text-align: justify;
-        text-justify: inter-word;
+        font-size: 15px;
     }
 }
 
