@@ -11,14 +11,14 @@
 {% block content %}
     <div class="row">
         <div class="eightcol">
-      <h2 class="title">{{ post.title }}</h2>
+      <h2 class="title">{{ title }}</h2>
       <p class="post-data">
-          Posted by Madis Väin on {{ post.timestamp|date('%d %b %Y') }}.
-          {% for tag in post.tags %}
+          Posted by Madis Väin on {# timestamp|date('%d %b %Y') #}.
+          {% for tag in tags %}
             <span class="grey">{{ tag }}{% if not loop.last %}, {% endif %}</span>
           {% endfor %}
       </p>
-      {{ post.content }}
+      {{ content }}
         </div>
         <div class="fourcol last">
             <div style="margin-top: 120px;">
